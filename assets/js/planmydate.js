@@ -6,9 +6,7 @@ var attractionoptions = document.querySelector("#attraction-options");
 console.log(JSON.parse(localStorage.getItem("dataFromForm")));
 var dataFromForm = JSON.parse(localStorage.getItem("dataFromForm"));
 var place = dataFromForm[1] + " " + dataFromForm[2];
-console.log(place);
 var what = dataFromForm[3];
-console.log(what);
 
 //decide what api to call and what to pass into it
 if (what == "Attractions") {
