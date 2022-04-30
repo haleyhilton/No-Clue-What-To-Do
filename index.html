@@ -44,8 +44,12 @@
 
       <form class="form-container">
         <div class="input-group">
-          <div class="input-group-prepend">
-            <label class="input-group-text" id="" >Enter your city and state</label>
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">Enter your city and state</span>
+            </div>
+            <input type="text" class="form-control" id="cityInput">
+            <input type="text" class="form-control" id="stateInput">
           </div>
           <input type="text" class="form-control" id="cityInput" placeholder="San Diego">
           <input type="text" class="form-control" id="stateInput" placeholder="California">
@@ -60,14 +64,15 @@
             <option>Food</option>
           </select>
         </div>
-        <button class="loadPageTwoNormalBtn">Show Me<br>Ideas</button>
-        <button class="loadPageTwoSurpriseButton">Surprise<br>Me</button>
 
-      </form>
+        <button id="loadPageTwoNormalBtn">Show Me Ideas</button>
+        <button id="loadPageTwoSurpriseButton">Surprise Me</button>
+
+        </form>    
+</div>
+    <div class="footer" id="footer">
+
     </div>
-  </div>
-
-  <div class="footer" id="footer"></div>
 
      <!--Google Maps Api-->
      <script
@@ -78,6 +83,13 @@
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/flickity.pkgd.min.js"></script>
 
+
+    <!--Google Maps Api-->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJYaSoyJpEW8-eq6dfHoB7Dvv8dKm84-U&libraries=places&v=weekly"
+      defer
+    ></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
