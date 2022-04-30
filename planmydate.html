@@ -19,19 +19,25 @@
         </form>
     </header>
    <hr>
- <div class="results-container">
-     <div class="food-options">
-        <h3>Dinner Options:</h3>
+        <div class="results-container">
+            <div class="food-options">
+                <h3>Dinner Options:</h3>
+            </div>
+            <div class="entertainment-options">
+                <h3>Entertainment Options:</h3>
+            </div>
+            <div class="attraction-options">
+                <h3>Attraction Options:</h3>
+            </div>
+        </div>
 
-     </div>
-     <div class="entertainment-options">
-        <h3>Entertainment Options:</h3>
-
-     </div>
-     <div class="attraction-options">
-        <h3>Attraction Options:</h3>
-
-     </div>
-  </div>
+    <!-- Leave this div, it's disabled and is necessary for google maps api to function -->
+    <div id="map"></div>
+    <!--Google Maps Api-->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJYaSoyJpEW8-eq6dfHoB7Dvv8dKm84-U&libraries=places&v=weekly"
+        defer
+    ></script>
+    <script src="./assets/js/planmydate.js"></script>
 </body>
 </html>

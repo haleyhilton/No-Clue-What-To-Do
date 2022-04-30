@@ -43,8 +43,8 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="">Enter your city and state</span>
             </div>
-            <input type="text" class="form-control">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="cityInput">
+            <input type="text" class="form-control" id="stateInput">
           </div>
           
 
@@ -56,8 +56,8 @@
             <option>Food</option>
           </select>
         </div>
-        <button>Show Me Ideas</button>
-        <button>Surprise Me</button>
+        <button id="loadPageTwoNormalBtn">Show Me Ideas</button>
+        <button id="loadPageTwoSurpriseButton">Surprise Me</button>
 
     </form>    
 </div>
@@ -65,6 +65,11 @@
 
     </div>
 
+    <!--Google Maps Api-->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJYaSoyJpEW8-eq6dfHoB7Dvv8dKm84-U&libraries=places&v=weekly"
+      defer
+    ></script>
     <script src="./assets/js/script.js"></script>
 </body>
 

@@ -56,3 +56,8 @@ form {
       color: rgb(247,231,206);
       font-size: 30px;
 }
+
+/* turn off google maps required div */
+#map {
+    display: none;
+  }
