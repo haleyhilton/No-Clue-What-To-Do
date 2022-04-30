@@ -1,7 +1,7 @@
 var img = document.createElement("img");
-img.src = "http://public.media.smithsonianmag.com/legacy_blog/smiley-face-1.jpg";
-var src = document.getElementById("header");
-src.appendChild(img).style.maxWidth = "200px";
+img.src = "https://pngimg.com/uploads/smiley/smiley_PNG36233.png";
+var src = document.getElementById("footer");
+src.appendChild(img).style.maxWidth = "100px";
 img.style.padding = "10px";
 
 
@@ -16,7 +16,12 @@ $('#datetimepicker').click(function () {
   });
 
   //append text to datepicker
-
+  
+  $('.main-gallery').flickity({
+    // options
+    cellAlign: 'left',
+    contain: true
+  });
 
 
 //GOOGLE MAPS API USAGE
