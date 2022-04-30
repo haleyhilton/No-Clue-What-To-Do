@@ -1,3 +1,10 @@
+/* Fonts being imported to use on style sheet */
+/* Parisienne */
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+/* Diplomata SC */
+@import url('https://fonts.googleapis.com/css2?family=Diplomata+SC&display=swap');
+
+
 body {
     background-image: url("/assets/images/istockphoto-1164223950-612x612.jpeg");
     background-position: center;
@@ -9,6 +16,13 @@ h1 {
     position: relative;
     left: 1250px;
     color: rgb(247,231,206);
+    font-family: 'Parisienne', cursive;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: 'Diplomata SC', cursive;
+    color: rgb(233,116,81);
 }
 /* couldn't see text due to background image */
 label {
@@ -41,18 +55,15 @@ form {
 
 .food-options {
      padding: 0 0 75px 0;
-     color: rgb(247,231,206);
      font-size: 30px;
 }
 
 .entertainment-options {
       padding: 75px;
-      color: rgb(247,231,206);
       font-size: 30px;
 }
 
 .attraction-options {
       padding: 75px;
-      color: rgb(247,231,206);
       font-size: 30px;
 }
