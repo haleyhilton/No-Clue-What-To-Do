@@ -67,3 +67,8 @@ form {
       padding: 75px;
       font-size: 30px;
 }
+
+/* turn off google maps required div */
+#map {
+    display: none;
+  }
