@@ -1,0 +1,58 @@
+body {
+    background-image: url("/assets/images/istockphoto-1164223950-612x612.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    position: relative;
+    left: 1250px;
+    color: rgb(247,231,206);
+}
+/* couldn't see text due to background image */
+label {
+    color: rgb(247,231,206);
+    font-size: 18px;
+}
+
+/* styling to separate header from search content */
+hr {
+    border: 10px solid rgb(233,116,81);
+    border-radius: 5px;
+}
+/* to display options in the center for user to read and select through */
+.results-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 25px;
+    border-style: double;
+    border-color: rgb(247,231,206);
+    
+}
+/* moving zip code search into position */
+form {
+    position: relative;
+    bottom: 50px
+
+}
+
+.food-options {
+     padding: 0 0 75px 0;
+     color: rgb(247,231,206);
+     font-size: 30px;
+}
+
+.entertainment-options {
+      padding: 75px;
+      color: rgb(247,231,206);
+      font-size: 30px;
+}
+
+.attraction-options {
+      padding: 75px;
+      color: rgb(247,231,206);
+      font-size: 30px;
+}
