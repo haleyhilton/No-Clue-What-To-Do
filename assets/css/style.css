@@ -1,0 +1,107 @@
+:root{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --black: black;
+    --sienna: rgb(233,116,81); /* excitement and optimism */
+    --champagne: rgb(247,231,206); /*happiness and joy*/
+
+}
+
+@font-face {
+    font-family: 'devantHorgen';
+    src: url('../fonts/DevantHorgen-Regular.woff') format('woff');
+    font-weight: normal;
+  }
+
+  @font-face {
+    font-family: 'losSantos';
+    src: url('../fonts/LosSantos.ttf');
+  }
+
+  @font-face {
+    font-family: 'Moveri-Black';
+    src: url('../fonts/Moveri-Black.ttf');
+  }
+
+  @font-face {
+    font-family: 'Moveri-Thin';
+    src: url('../fonts/Moveri-Thin.ttf');
+  }
+
+  @font-face {
+    font-family: 'Moveri-Bold';
+    src: url('../fonts/Moveri-Bold.ttf');
+  }
+
+  @font-face {
+    font-family: 'SummerMood';
+    src: url('../fonts/SummerMood.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Vaslenta';
+    src: url('../fonts/Vaslenta.ttf');
+  }
+
+
+
+.header-title{
+    display: flex;
+    justify-content: left;
+    padding: 4% 2% 7%;
+    font-weight: 500;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: var(--sienna);
+    color: var(--champagne);
+}
+
+.head-font{
+    font-family: 'Moveri-Bold', sans-serif;
+    font-size: 65px;
+}
+
+p{
+    font-family: 'SummerMood';
+}
+
+.form-group {
+    margin-bottom: 15px;
+    padding: 10% 0%;
+}
+
+.information-container{
+    padding: 5% 15%;
+    margin: 10% 20%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    border-radius: 15%;
+    align-items: center;
+    font-size: larger;
+    text-align: -webkit-center;
+}
+
+.input-group-date{
+    padding: 5%;
+    margin: 10%;
+}
+
+.footer{
+    display: flex;
+    justify-content: left;
+    padding: 10% 5%;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: var(--champagne);
+}
+
+button{
+    display: flex;
+    justify-content: center;
+}
+
+/*font-family: 'DM Sans', sans-serif;
+font-family: 'Lora', serif;
+font-family: 'Roboto', sans-serif;*/
