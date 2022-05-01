@@ -53,19 +53,8 @@ form {
 
 }
 
-.food-options {
-     padding: 0 0 75px 0;
-     font-size: 30px;
-}
-
-.entertainment-options {
-      padding: 75px;
-      font-size: 30px;
-}
-
-.attraction-options {
-      padding: 75px;
-      font-size: 30px;
+.outingTypeContainer {
+    font-size: 30px;
 }
 
 /* turn off google maps required div */
