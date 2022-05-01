@@ -68,7 +68,7 @@ function performNearbySearch(typeOfPlace, searchRadius) {
   });
 }
 
-//test:
+//example test:
 /* var testBtn = document.querySelector("#testBtn");
 testBtn.addEventListener("click", function() {
   getNearbyPlaces("92065", "restaurant", 7000);

@@ -46,7 +46,7 @@
 
 .header-title{
     display: flex;
-    justify-content: left;
+    justify-content: right;
     padding: 4% 2% 7%;
     font-weight: 500;
     flex-direction: column;
@@ -57,11 +57,13 @@
 
 .head-font{
     font-family: 'Moveri-Bold', sans-serif;
-    font-size: 65px;
+    font-size: 80px;
+    letter-spacing: 5px;
+
 }
 
 p{
-    font-family: 'SummerMood';
+font-size: large;  
 }
 
 .form-group {
@@ -70,15 +72,17 @@ p{
 }
 
 .information-container{
-    padding: 5% 15%;
-    margin: 10% 20%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid;
-    border-radius: 15%;
-    align-items: center;
-    font-size: larger;
-    text-align: -webkit-center;
+  padding: 5px ;
+  margin: 8% 20% 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: larger;
+  text-align: -webkit-center;
+  border: 0.2rem solid #fff;
+  border-radius: 15%;
+  padding: 0.4em;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #e97451, 0 0 0.8rem #fe1313, 0 0 2.8rem #fe1313, inset 0 0 1.3rem #e97451;
 }
 
 .input-group-date{
@@ -87,19 +91,65 @@ p{
 }
 
 .footer{
-    display: flex;
-    justify-content: left;
-    padding: 10% 5%;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    flex-direction: column;
-    flex-wrap: wrap;
-    background-color: var(--champagne);
+  display: flex;
+  justify-content: right;
+  align-content: flex-end;
+  padding: 5%;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: var(--champagne);
 }
 
 button{
     display: flex;
     justify-content: center;
+    margin: 10px;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: small;
+}
+
+button:hover{
+  background-color: var(--champagne);
+  opacity: 80%;
+  transition: 0.5s;
+  color: var(--sienna);
+}
+
+#rotate{
+  writing-mode: vertical-lr;
+  float: right;
+  font-size: 75px;
+  padding: 15% 100px 0px;
+  font-family: 'Vaslenta', sans-serif;
+  letter-spacing: 5px;
+  opacity: 80%;
+  color: var(--sienna);
+}
+
+.gallery {
+  background: #EEE;
+}
+
+.gallery-cell {
+  width: 100%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  counter-increment: gallery-cell;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
 }
 
 /*font-family: 'DM Sans', sans-serif;
