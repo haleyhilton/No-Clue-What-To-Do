@@ -1,29 +1,5 @@
-var foodOptions = document.querySelector("#food-options");
-var entertainmentOptions = document.querySelector("#entertainment-options");
-var attractionoptions = document.querySelector("#attraction-options");
-
 //Show data from other page
 console.log(JSON.parse(localStorage.getItem("dataFromForm")));
-var dataFromForm = JSON.parse(localStorage.getItem("dataFromForm"));
-var place = dataFromForm[1] + " " + dataFromForm[2];
-var what = dataFromForm[3];
-
-//decide what api to call and what to pass into it
-if (what == "Attractions") {
-    foodOptions.setAttribute("style", "display: none");
-    entertainmentOptions.setAttribute("style", "display: none");
-    //attraction things here
-}
-if (what == "Entertainment") {
-    foodOptions.setAttribute("style", "display: none");
-    attractionoptions.setAttribute("style", "display: none");
-    //Entertainment things here
-}
-if (what == "Food") {
-    entertainmentOptions.setAttribute("style", "display: none");
-    attractionoptions.setAttribute("style", "display: none");
-    getNearbyPlaces(place, "restaurant", 10000);
-}
 
 //GOOGLE MAPS API USAGE
 
@@ -68,7 +44,7 @@ function performNearbySearch(typeOfPlace, searchRadius) {
   });
 }
 
-//example test:
+//test:
 /* var testBtn = document.querySelector("#testBtn");
 testBtn.addEventListener("click", function() {
   getNearbyPlaces("92065", "restaurant", 7000);
