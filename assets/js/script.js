@@ -6,23 +6,25 @@ img.style.padding = "10px";
 
 
 
-var dateInputEl = $('#datetimepicker')
+// var dateInputEl = $('#datetimepicker')
 
-$('#datetimepicker').click(function () {
-    $('#date-selector').datepicker({
-      changeMonth: true,
-      changeYear: true,
-    });
-  });
+// $('#datetimepicker').click(function () {
+//     $('#date-selector').datepicker({
+//       changeMonth: true,
+//       changeYear: true,
+//     });
+//   });
 
   //append text to datepicker
-  
-  $('.main-gallery').flickity({
-    // options
-    cellAlign: 'left',
-    contain: true
-  });
-
+  $(function(){
+    $('.input-group.date').datepicker({
+        orientation: "auto left",
+        forceParse: false,
+        autoclose: true,
+        todayHighlight: true,
+        toggleActive: true
+    });
+    });
 
 
 
