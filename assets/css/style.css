@@ -66,9 +66,13 @@ p{
 font-size: large;  
 }
 
+.container{
+  max-width: 75%;
+  margin: 5%
+}
+
 .form-group {
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin: 10%;
 }
 
 .information-container{
@@ -80,8 +84,8 @@ font-size: large;
   font-size: larger;
   text-align: -webkit-center;
   border: 0.2rem solid #fff;
-  border-radius: 15%;
-  padding: 0.4em;
+  border-radius: 25%;
+  padding: 5%;
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #e97451, 0 0 0.8rem #fe1313, 0 0 2.8rem #fe1313, inset 0 0 1.3rem #e97451;
 }
 
@@ -124,7 +128,7 @@ button:hover{
   opacity: 80%;
   color: var(--sienna);
 }
-
+/*
 .gallery {
   background: #EEE;
 }
@@ -137,7 +141,7 @@ button:hover{
   counter-increment: gallery-cell;
 }
 
-/* cell number */
+/* cell number
 .gallery-cell:before {
   display: block;
   text-align: center;
@@ -145,7 +149,7 @@ button:hover{
   line-height: 200px;
   font-size: 80px;
   color: white;
-}
+}*/
 
 /*font-family: 'DM Sans', sans-serif;
 font-family: 'Lora', serif;
