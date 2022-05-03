@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="ResetStyleSheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +20,6 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
   <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/flickity.css" media="screen">
 
   <title>Great Date: For the adventurous and the indecisive</title>
 </head>
@@ -41,7 +41,7 @@
       <div class="container">
         <label>Pick a Date</label>
         <div class="input-group date">
-          <input type="text" class="form-control"><span class="input-group-addon">
+          <input type="text" class="form-control" id="date-selector"><span class="input-group-addon">
             <i class="glyphicon glyphicon-calendar"></i></span>
         </div>
         </div>
@@ -68,7 +68,7 @@
         <button id="loadPageTwoNormalBtn">Show Me<br>Ideas</button>
         <button id="loadPageTwoSurpriseButton">Surprise<br>Me</button>
 
-      </form>    
+      </form>
 </div>
     <div class="footer" id="footer">
 
