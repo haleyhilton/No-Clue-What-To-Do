@@ -1,6 +1,7 @@
 var foodOptions = document.querySelector("#food-options");
 var entertainmentOptions = document.querySelector("#entertainment-options");
 var attractionoptions = document.querySelector("#attraction-options");
+var resultsContainer = document.querySelector("#results-container");
 
 //Show data from other page
 console.log(JSON.parse(localStorage.getItem("dataFromForm")));
@@ -9,6 +10,7 @@ var place = dataFromForm[1] + " " + dataFromForm[2];
 var what = dataFromForm[3];
 
 //decide what api to call and what to pass into it
+var nearbyPlaces = [];
 if (what == "Attractions") {
     foodOptions.setAttribute("style", "display: none");
     entertainmentOptions.setAttribute("style", "display: none");
@@ -61,17 +63,40 @@ function performNearbySearch(typeOfPlace, searchRadius) {
 
   service.nearbySearch(request, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-              console.log(results[i]);
-          }
+          console.log(results);
+          showResults(results, typeOfPlace);
       }
   });
 }
 
-//example test:
-/* var testBtn = document.querySelector("#testBtn");
-testBtn.addEventListener("click", function() {
-  getNearbyPlaces("92065", "restaurant", 7000);
-}); */
-
 //END GOOGLE MAPS API USAGE
+
+//functions to dynamically update the html to show the results of a search
+function showResults(rslts, ptype) {
+    if (ptype == "placeholder") {
+        for (i = 0; i < rslts.length; i++) {
+            createAttractionCard(rslts[i]);
+        }
+    }
+    if (ptype == "placeholder") {
+        for (i = 0; i < rslts.length; i++) {
+            createEntertainmentCard(rslts[i]);
+        }
+    }
+    if (ptype == "restaurant") {
+        for (i = 0; i < rslts.length; i++) {
+            createFoodCard(rslts[i]);
+        }
+    }
+}
+
+function createFoodCard() {
+    //create holder div
+    var addFoodCard = document.createElement("div");
+    
+    //create ps
+    var addPOpen = document.createElement("p");
+    addPOpen.innerHTML = "open now"
+    //append everything to results container
+    
+}

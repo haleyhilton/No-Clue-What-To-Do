@@ -30,6 +30,7 @@ img.style.padding = "10px";
 
 //form submit functionality
 var dataFromForm = [];
+var bodyy = document.querySelector("body");
 //clear any prior existing dataFromForm locally stored data
 if (localStorage.getItem("dataFromForm")) {
   localStorage.setItem("dataFromForm", dataFromForm);
@@ -47,6 +48,41 @@ loadPageTwoNormalBtn.addEventListener("click", function(event) {
   dataFromForm.push(stateInput.value);
   dataFromForm.push(activityInput.value);
   localStorage.setItem("dataFromForm", JSON.stringify(dataFromForm));
-  //load page 2
-  location.href = "planmydate.html";
+
+  //loading screen
+  bodyParts = bodyy.children;
+  for (i = 0; i < bodyParts.length; i++) {
+    bodyParts[i].style.display = "none";
+  }
+  var addDivForCentering = document.createElement("div");
+  addDivForCentering.style.width = "100%";
+  addDivForCentering.style.height = "600px";
+  addDivForCentering.style.display = "flex";
+  addDivForCentering.style.justifyContent = "center";
+  addDivForCentering.style.alignItems = "center";
+  addDivForCentering.setAttribute("id", "divForCenteringLoadImg");
+  bodyy.appendChild(addDivForCentering);
+  var divForCenteringLoadImg = document.querySelector("#divForCenteringLoadImg");
+  var addLoadImg = document.createElement("img");
+  addLoadImg.src = "https://pngimg.com/uploads/smiley/smiley_PNG36233.png";
+  addLoadImg.setAttribute("id", "loadImg");
+  divForCenteringLoadImg.appendChild(addLoadImg).style.maxWidth = "150px";
+  var timeLeft = 250;
+  loadImg = document.querySelector("#loadImg");
+  startTimer(timeLeft);
 })
+
+
+function startTimer(timeLeft) {
+  var start = 0;
+  var timeInterval = setInterval(function() {
+      timeLeft--;
+      start++;
+      loadImg.style.transform = "rotate(" + (start * 5) + "deg)";
+      if (timeLeft == 0) {
+          clearInterval(timeInterval);
+          //load page 2
+          location.href = "planmydate.html";
+      };
+  }, 20);
+}
