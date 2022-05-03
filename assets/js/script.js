@@ -13,15 +13,7 @@ $('#datetimepicker').click(function () {
       changeMonth: true,
       changeYear: true,
     });
-  });
-
-  //append text to datepicker
-  
-  $('.main-gallery').flickity({
-    // options
-    cellAlign: 'left',
-    contain: true
-  });
+});
 
 
 
