@@ -37,16 +37,19 @@
   <div class="col">
     <div class="information-container">
       
-      <div class='input-group-date' id='datetimepicker'>
-        <label>Pick a Date </label>
-        <input type='text' class="form-control" id="date-selector" />
-          <button class="glyphicon glyphicon-calendar"></button>
-      </div>
+
+      <div class="container">
+        <label>Pick a Date</label>
+        <div class="input-group date">
+          <input type="text" class="form-control"><span class="input-group-addon">
+            <i class="glyphicon glyphicon-calendar"></i></span>
+        </div>
+        </div>
 
       <form class="form-container">
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="">Enter your city and state</span>
+            <label class="input-group-text" id="">Enter your city and state</label>
           </div>
 
           <input type="text" class="form-control" id="cityInput" placeholder="San Diego">
@@ -62,8 +65,8 @@
           </select>
         </div>
 
-        <button id="loadPageTwoNormalBtn">Show Me Ideas</button>
-        <button id="loadPageTwoSurpriseButton">Surprise Me</button>
+        <button id="loadPageTwoNormalBtn">Show Me<br>Ideas</button>
+        <button id="loadPageTwoSurpriseButton">Surprise<br>Me</button>
 
       </form>    
 </div>
@@ -72,7 +75,6 @@
     </div>
 
   <script src="./assets/js/script.js"></script>
-  <script src="./assets/js/flickity.pkgd.min.js"></script>
 </body>
 
 </html>
