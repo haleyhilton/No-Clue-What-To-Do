@@ -4,20 +4,35 @@
 /* Diplomata SC */
 @import url('https://fonts.googleapis.com/css2?family=Diplomata+SC&display=swap');
 
+@font-face {
+    font-family: 'Moveri-Bold';
+    src: url('../fonts/Moveri-Bold.ttf');
+  }
+
 
 body {
-    background-image: url("/assets/images/istockphoto-1164223950-612x612.jpeg");
+    background-image: url("/assets/images/Edited\ Background\ \(1\).png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+header {
+    background-color: rgb(233,116,81);
 }
 
 h1 {
     position: relative;
     left: 1250px;
     color: rgb(247,231,206);
-    font-family: 'Parisienne', cursive;
+    font-family: 'Moveri-Bold', sans-serif;
     font-weight: bold;
+    font-size: 80PX;
+}
+
+button {
+    border-radius: 50%;
+    padding: 10px;
 }
 
 h3 {
@@ -41,9 +56,13 @@ hr {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 25px;
-    border-style: double;
-    border-color: rgb(247,231,206);
+    background-color: rgb(247,231,206);
+    border: 0.2rem solid #fff;
+    border-radius: 25px;
+    margin-top: 25px;
+    padding: 0.4em;
+    box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #e97451, 0 0 0.8rem #fe1313, 0 0 2.8rem #fe1313, inset 0 0 1.3rem #e97451;
+    
     
 }
 /* moving zip code search into position */
