@@ -4,17 +4,6 @@ var src = document.getElementById("footer");
 src.appendChild(img).style.maxWidth = "100px";
 img.style.padding = "10px";
 
-
-
-// var dateInputEl = $('#datetimepicker')
-
-// $('#datetimepicker').click(function () {
-//     $('#date-selector').datepicker({
-//       changeMonth: true,
-//       changeYear: true,
-//     });
-//   });
-
   //append text to datepicker
   $(function(){
     $('.input-group.date').datepicker({
