@@ -11,19 +11,24 @@
 
 
 body {
-    background-image: url("assets/images/Edited Background (1).png");
+    background-image: url("../images/editBackground.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: fit-content;
+
 }
 
 header {
-    background-color: rgb(233,116,81);
+   background-color: rgb(233,116,81);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 0 45px;
 }
 
 h1 {
-    position: relative;
-    left: 70%;
     color: rgb(247,231,206);
     font-family: 'Moveri-Bold', sans-serif;
     font-weight: bold;
@@ -64,12 +69,6 @@ hr {
     box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #e97451, 0 0 0.8rem #fe1313, 0 0 2.8rem #fe1313, inset 0 0 1.3rem #e97451;
     
     
-}
-/* moving zip code search into position */
-form {
-    position: relative;
-    bottom: 50px
-
 }
 
 .outingTypeContainer {
