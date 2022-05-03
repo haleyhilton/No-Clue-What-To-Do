@@ -75,7 +75,17 @@ hr {
     font-size: 30px;
 }
 
+
+
+.customCard {
+    border-style: solid;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+}
+
+
 /* turn off google maps required div */
 #map {
     display: none;
-  }
+}
