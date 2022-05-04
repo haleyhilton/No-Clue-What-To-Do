@@ -4,16 +4,16 @@ var src = document.getElementById("footer");
 src.appendChild(img).style.maxWidth = "100px";
 img.style.padding = "10px";
 
-  //append text to datepicker
-  $(function(){
-    $('.input-group.date').datepicker({
-        orientation: "auto left",
-        forceParse: false,
-        autoclose: true,
-        todayHighlight: true,
-        toggleActive: true
-    });
-    });
+//append text to datepicker
+$(function () {
+  $('.input-group.date').datepicker({
+    orientation: "auto left",
+    forceParse: false,
+    autoclose: true,
+    todayHighlight: true,
+    toggleActive: true
+  });
+});
 
 
 
@@ -29,7 +29,7 @@ var dateSelector = document.querySelector("#date-selector");
 var cityInput = document.querySelector("#cityInput");
 var stateInput = document.querySelector("#stateInput");
 var activityInput = document.querySelector("#exampleFormControlSelect1");
-loadPageTwoNormalBtn.addEventListener("click", function(event) {
+loadPageTwoNormalBtn.addEventListener("click", function (event) {
   event.preventDefault();
   //save input data to local storage
   dataFromForm.push(dateSelector.value);
@@ -64,14 +64,14 @@ loadPageTwoNormalBtn.addEventListener("click", function(event) {
 
 function startTimer(timeLeft) {
   var start = 0;
-  var timeInterval = setInterval(function() {
-      timeLeft--;
-      start++;
-      loadImg.style.transform = "rotate(" + (start * 5) + "deg)";
-      if (timeLeft == 0) {
-          clearInterval(timeInterval);
-          //load page 2
-          location.href = "planmydate.html";
-      };
+  var timeInterval = setInterval(function () {
+    timeLeft--;
+    start++;
+    loadImg.style.transform = "rotate(" + (start * 5) + "deg)";
+    if (timeLeft == 0) {
+      clearInterval(timeInterval);
+      //load page 2
+      location.href = "planmydate.html";
+    };
   }, 20);
 }
