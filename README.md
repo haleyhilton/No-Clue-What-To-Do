@@ -5,13 +5,13 @@ Live demo [_here_](https://haleyhilton.github.io/No-Clue-What-To-Do/)
 Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
-* [Features](#features)Features
+* [Features](#features)
 * [Screenshots](#screenshots)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
-<!-- * [License](#license) -->
+
 
 ## General Information
 - Great Date is an application / website that can be used romantically or platonically as a catalyst for a "great date." So often we are paralyzed by the inability to choose or are too tired to even know where to start. Great Date solves this by only asking the user for three parameters in order to generate "great date" ideas:
