@@ -6,7 +6,10 @@ var resultsContainer = document.querySelector(".results-container");
 //Show data from other page
 console.log(JSON.parse(localStorage.getItem("dataFromForm")));
 var dataFromForm = JSON.parse(localStorage.getItem("dataFromForm"));
+var dateDate = dataFromForm[0];
 var place = dataFromForm[1] + " " + dataFromForm[2];
+var placeCity = dataFromForm[1];
+var placeState = dataFromForm[2];
 var what = dataFromForm[3];
 
 //decide what api to call and what to pass into it
@@ -25,7 +28,7 @@ if (what == "Attractions") {
 if (what == "Entertainment") {
     foodOptions.setAttribute("style", "display: none");
     attractionoptions.setAttribute("style", "display: none");
-    //entertainment things here
+    getNearbyEntertainment(placeCity, "CA", dateDate);
 }
 if (what == "Food") {
     entertainmentOptions.setAttribute("style", "display: none");
@@ -77,6 +80,27 @@ function performNearbySearch(typeOfPlace, searchRadius) {
 
 //END GOOGLE MAPS API USAGE
 
+//SEAT GEEK API USAGE
+//Your app secret is cb9ad030117739bd2955c316867a7cfe25eeff1f11c90bbcfee9aa450747c530
+//Client ID: MjY4MjAxMDZ8MTY1MTYwMjA4Mi44Nzc5MjQ3
+
+function getNearbyEntertainment(sgCity, sgState, sgDate) {
+    sgCity = sgCity.replace(" ", "-");
+    sgState = sgState.replace(" ", "-");
+    sgDatePlusOne = moment(sgDate, "YYYY-MM-DD").add(1, 'd').format("YYYY-MM-DD");
+    console.log(sgCity + " " + sgState + " " + sgDate + " " + sgDatePlusOne);
+    requestUrl = "https://api.seatgeek.com/2/events?venue.state=" + sgState + "&venue.city=" + sgCity + "&datetime_local.gte=" + sgDate + "&datetime_local.lt=" + sgDatePlusOne + "&per_page=100&sort=datetime_local.asc&client_id=MjY4MjAxMDZ8MTY1MTYwMjA4Mi44Nzc5MjQ3";
+    fetch(requestUrl)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+          showResults(data.events, "entertainment");         
+      });
+}
+
+//END SEAT GEEK API USAGE
+
 //functions to dynamically update the html to show the results of a search
 function showResults(rslts, ptype) {
     if (ptype == "amusement_park" || ptype == "aquarium" || ptype == "art_gallery" || ptype == "bowling_alley" || ptype == "museum" || ptype == "park" || ptype == "zoo") {
@@ -88,7 +112,7 @@ function showResults(rslts, ptype) {
             }
         }
     }
-    if (ptype == "placeholder") {
+    if (ptype == "entertainment") {
         var cardsContainer = document.querySelector("#entertainmentCardsContainer");
         for (i = 0; i < rslts.length; i++) {
             createEntertainmentCard(rslts[i], cardsContainer);
@@ -149,7 +173,6 @@ function createFoodCard(googlePlaceData, cardsContainer) {
 }
 
 function createAttractionCard(googlePlaceData, cardsContainer, ptype) {
-    console.log(googlePlaceData.name + " " + ptype);
     //create holder div
     var addAttractionCard = document.createElement("div");
     addAttractionCard.setAttribute("class", "customCard");
@@ -189,11 +212,43 @@ function createAttractionCard(googlePlaceData, cardsContainer, ptype) {
     addColTwo.appendChild(addPAddress);
     addAttractionCard.appendChild(addColOne);
     addAttractionCard.appendChild(addColTwo);
-    console.log("cc: " + cardsContainer + " aac: " + addAttractionCard);
     cardsContainer.appendChild(addAttractionCard);
     cardsContainer.appendChild(addBr);
 }
 
-//SEAT GEEK API USAGE
-//Your app secret is cb9ad030117739bd2955c316867a7cfe25eeff1f11c90bbcfee9aa450747c530
-//Client ID: MjY4MjAxMDZ8MTY1MTYwMjA4Mi44Nzc5MjQ3
+function createEntertainmentCard(seatGeekData, cardsContainer) {
+    //create holder div
+    var addEntertainmentCard = document.createElement("div");
+    addEntertainmentCard.setAttribute("class", "customCardWithoutFlex");
+    //create ps
+    var addName = document.createElement("h4");
+    addName.textContent = seatGeekData.title;
+
+    var addEventType = document.createElement("p");
+    addEventType.textContent = seatGeekData.type.replace("_", " ");
+
+    var addEventTime = document.createElement("p");
+    addEventTime.textContent = "Starts at: " + seatGeekData.datetime_local.slice(11);
+
+    var addVenue = document.createElement("p");
+    addVenue.textContent = "Venue: " + seatGeekData.venue.name;
+
+    var addEventURL = document.createElement("a");
+    addEventURL.textContent = "See event on SeatGeek";
+    addEventURL.href = seatGeekData.url;
+    addEventURL.target = "_blank";
+
+    //create br after card
+    var addBr = document.createElement("br");
+
+    //append everything to cards container
+    addEntertainmentCard.appendChild(addName);
+    addEntertainmentCard.appendChild(addEventType);
+    addEntertainmentCard.appendChild(addEventTime);
+    addEntertainmentCard.appendChild(addVenue);
+    addEntertainmentCard.appendChild(addEventURL);
+    cardsContainer.appendChild(addEntertainmentCard);
+    cardsContainer.appendChild(addBr);
+
+
+}

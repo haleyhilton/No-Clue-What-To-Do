@@ -11,7 +11,9 @@ $(function () {
     forceParse: false,
     autoclose: true,
     todayHighlight: true,
-    toggleActive: true
+    toggleActive: true,
+    //this format is needed for seat geek api, would be very complicated to circumnavigate
+    format: "yyyy-mm-dd"
   });
 });
 
