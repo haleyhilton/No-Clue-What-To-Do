@@ -253,12 +253,13 @@ function createEntertainmentCard(seatGeekData, cardsContainer) {
 }
 
 function checkAndConvertStateFormat(statey) {
+    statey = statey.toLowerCase();
     spelledRight = false;
     whichState = 0;
     //states full name array
-    stateFulls = [];
+    stateFulls = ["alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "district of columbia", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "north dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming"];
     //states abr. array
-    stateAbrs = [];
+    stateAbrs = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
     //check to see if conversion is necessary
     for (st = 0; st < stateAbrs.length; st++) {
         if (statey == stateAbrs[st]) {
@@ -272,6 +273,6 @@ function checkAndConvertStateFormat(statey) {
             whichState = st;
         }
     }
-    //
+    //return the abbreviated state
     return stateAbrs[whichState];
 }
