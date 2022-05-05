@@ -39,6 +39,7 @@ h1 {
 button {
     border-radius: 50%;
     padding: 10px;
+    margin-bottom: 5px;
 }
 
 h3 {
