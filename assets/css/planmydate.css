@@ -35,7 +35,7 @@ button {
 
 h3 {
     font-family: 'Diplomata SC', cursive;
-    color: rgb(233,116,81);
+    color: #e97451;
 }
 /* couldn't see text due to background image */
 label {
@@ -51,7 +51,7 @@ select {
 
 /* styling to separate header from search content */
 hr {
-    border: 10px solid rgb(233,116,81);
+    border: 10px solid #e97451;
     border-radius: 5px;
 }
 /* to display options in the center for user to read and select through */
@@ -60,7 +60,7 @@ hr {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(247,231,206);
+    background-color: #f7e7ce;
     border: 0.2rem solid #fff;
     border-radius: 25px;
     margin-top: 150px;
