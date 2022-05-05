@@ -63,10 +63,7 @@ hr {
     background-color: #f7e7ce;
     border: 0.2rem solid #fff;
     border-radius: 25px;
-    margin-top: 150px;
-    margin-left: 350px;
-    margin-right: 350px;
-    margin-bottom: 10px;
+    margin: 8% 20% 15%;
     padding: 25px;
     box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #e97451, 0 0 0.8rem #fe1313, 0 0 2.8rem #fe1313, inset 0 0 1.3rem #e97451;
     
