@@ -5,7 +5,7 @@ Live demo [_here_](https://haleyhilton.github.io/No-Clue-What-To-Do/)
 Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
-* [Features](#features)Features
+* [Features](#features)
 * [Screenshots](#screenshots)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
