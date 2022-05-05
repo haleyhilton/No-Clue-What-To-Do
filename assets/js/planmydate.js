@@ -28,7 +28,8 @@ if (what == "Attractions") {
 if (what == "Entertainment") {
     foodOptions.setAttribute("style", "display: none");
     attractionoptions.setAttribute("style", "display: none");
-    getNearbyEntertainment(placeCity, "CA", dateDate);
+    placeState = checkAndConvertStateFormat(placeState);
+    getNearbyEntertainment(placeCity, placeState, dateDate);
 }
 if (what == "Food") {
     entertainmentOptions.setAttribute("style", "display: none");
@@ -249,6 +250,28 @@ function createEntertainmentCard(seatGeekData, cardsContainer) {
     addEntertainmentCard.appendChild(addEventURL);
     cardsContainer.appendChild(addEntertainmentCard);
     cardsContainer.appendChild(addBr);
+}
 
-
+function checkAndConvertStateFormat(statey) {
+    spelledRight = false;
+    whichState = 0;
+    //states full name array
+    stateFulls = [];
+    //states abr. array
+    stateAbrs = [];
+    //check to see if conversion is necessary
+    for (st = 0; st < stateAbrs.length; st++) {
+        if (statey == stateAbrs[st]) {
+            return statey;
+        }
+    }
+    //check to see if state is spelled correctly and if so which position of the array for reference
+    for (st = 0; st < stateFulls.length; st++) {
+        if (statey == stateFulls[st]) {
+            spelledRight = true;
+            whichState = st;
+        }
+    }
+    //
+    return stateAbrs[whichState];
 }

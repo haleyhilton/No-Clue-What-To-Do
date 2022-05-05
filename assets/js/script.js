@@ -27,10 +27,12 @@ if (localStorage.getItem("dataFromForm")) {
   localStorage.setItem("dataFromForm", dataFromForm);
 }
 var loadPageTwoNormalBtn = document.querySelector("#loadPageTwoNormalBtn");
+var loadPageTwoSurpriseBtn = document.querySelector("#loadPageTwoSurpriseBtn");
 var dateSelector = document.querySelector("#date-selector");
 var cityInput = document.querySelector("#cityInput");
 var stateInput = document.querySelector("#stateInput");
 var activityInput = document.querySelector("#exampleFormControlSelect1");
+
 loadPageTwoNormalBtn.addEventListener("click", function (event) {
   event.preventDefault();
   //save input data to local storage
@@ -40,6 +42,24 @@ loadPageTwoNormalBtn.addEventListener("click", function (event) {
   dataFromForm.push(activityInput.value);
   localStorage.setItem("dataFromForm", JSON.stringify(dataFromForm));
 
+  renderLoadingScreen();
+})
+
+loadPageTwoSurpriseBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  //save input data to local storage
+  dataFromForm.push(dateSelector.value);
+  dataFromForm.push(cityInput.value);
+  dataFromForm.push(stateInput.value);
+  dateTypeOptions = ["Attractions", "Entertainment", "Food"];
+  dateTypePick = dateTypeOptions[(Math.floor(Math.random() * 3))];
+  dataFromForm.push(dateTypePick);
+  localStorage.setItem("dataFromForm", JSON.stringify(dataFromForm));
+
+  renderLoadingScreen();
+})
+
+function renderLoadingScreen() {
   //loading screen
   bodyParts = bodyy.children;
   for (i = 0; i < bodyParts.length; i++) {
@@ -61,8 +81,7 @@ loadPageTwoNormalBtn.addEventListener("click", function (event) {
   var timeLeft = 250;
   loadImg = document.querySelector("#loadImg");
   startTimer(timeLeft);
-})
-
+}
 
 function startTimer(timeLeft) {
   var start = 0;
