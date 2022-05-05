@@ -14,9 +14,13 @@ var what = dataFromForm[3];
 
 //decide what api to call and what to pass into it
 var nearbyPlaces = [];
+var totalOps = 1;
+var currentOps = 0;
+var totalOpsArray = [];
 if (what == "Attractions") {
     foodOptions.setAttribute("style", "display: none");
     entertainmentOptions.setAttribute("style", "display: none");
+    totalOps = 7;
     getNearbyPlaces(place, "amusement_park", 10000);
     getNearbyPlaces(place, "aquarium", 10000);
     getNearbyPlaces(place, "art_gallery", 10000);
@@ -70,10 +74,27 @@ function performNearbySearch(typeOfPlace, searchRadius) {
   };
 
   var service = new google.maps.places.PlacesService(map);
-
+  
   service.nearbySearch(request, function(results, status) {
+      if (!(status === google.maps.places.PlacesServiceStatus.OK)) {
+          totalOps--;
+      }
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-          showResults(results, typeOfPlace);
+          console.log(results);
+            for (r = 0; r < results.length; r++) {
+                totalOpsArray.push(results[r]);
+            }
+            currentOps++;
+            console.log(currentOps + " " + totalOps);
+          if (currentOps == totalOps) {
+              if (currentOps > 1) {
+                  console.log("makes it here");
+                  showResults(totalOpsArray, "attractions");
+              }
+              if (currentOps == 1) {
+                  showResults(totalOpsArray, typeOfPlace);
+              }
+          }
       }
   });
 }
@@ -100,15 +121,49 @@ function getNearbyEntertainment(sgCity, sgState, sgDate) {
 
 //END SEAT GEEK API USAGE
 
+function checkForMultiples(ranArray, len) {
+    multiples = false;
+    for (r = 0; r < ranArray.length; r++) {
+        for (r2 = 0; r2 < ranArray.length; r2++) {
+            if (ranArray[r] == ranArray[r2] && r != r2) {
+                multiples = true;
+            }
+        }
+    }
+    if (multiples) {
+        for (m = 0; m < ranArray.length; m++) {
+            ranArray[m] = (Math.floor(Math.random() * len))
+        }
+        ranArray = checkForMultiples(ranArray, len);
+    }
+    return ranArray;
+}
+
+function reorganize(arr) {
+    //pick random numbers
+    picks = [(Math.floor(Math.random() * arr.length)), (Math.floor(Math.random() * arr.length)), (Math.floor(Math.random() * arr.length)), (Math.floor(Math.random() * arr.length)), (Math.floor(Math.random() * arr.length))];
+    //check for same numbers
+    picks = checkForMultiples(picks, arr.length);
+    //choose which results to show
+    for (r = 0; r < picks.length; r++) {
+        picks[r] = arr[picks[r]];
+    }
+    return picks;
+}
+
 //functions to dynamically update the html to show the results of a search
 function showResults(rslts, ptype) {
-    if (ptype == "amusement_park" || ptype == "aquarium" || ptype == "art_gallery" || ptype == "bowling_alley" || ptype == "museum" || ptype == "park" || ptype == "zoo") {
+    if (rslts.length > 5) {
+        rslts = reorganize(rslts);
+    }
+    console.log(rslts);
+    if (ptype == "attractions") {
         var cardsContainer = document.querySelector("#attractionsCardsContainer");
         for (i = 0; i < rslts.length; i++) {
             if (rslts[i].business_status == "OPERATIONAL") {
                 console.log(rslts[i]);
                 if (rslts[i].photos) {
-                    createAttractionCard(rslts[i], cardsContainer, ptype);
+                    createAttractionCard(rslts[i], cardsContainer);
                 }
             }
         }
@@ -179,7 +234,7 @@ function createFoodCard(googlePlaceData, cardsContainer) {
     cardsContainer.appendChild(addBr);
 }
 
-function createAttractionCard(googlePlaceData, cardsContainer, ptype) {
+function createAttractionCard(googlePlaceData, cardsContainer) {
     //create holder div
     var addAttractionCard = document.createElement("div");
     addAttractionCard.setAttribute("class", "customCard");
@@ -200,8 +255,14 @@ function createAttractionCard(googlePlaceData, cardsContainer, ptype) {
     addPRating.textContent = "Rating: " + googlePlaceData.rating + "/5";
 
     var addPType = document.createElement("p");
-    ptype = ptype.replace("_", " ");
-    addPType.textContent = ptype;
+    aptype = googlePlaceData.types;
+    for (gpd = 0; gpd < aptype.length; gpd++) {
+        if (aptype[gpd] == "amusement_park" || aptype[gpd] == "aquarium" || aptype[gpd] == "art_gallery" || aptype[gpd] == "bowling_alley" || aptype[gpd] == "museum" || aptype[gpd] == "zoo" || aptype[gpd] == "park") {
+            ptypeActual = aptype[gpd];
+        }
+    }
+    ptypeActual = ptypeActual.replace("_", " ");
+    addPType.textContent = ptypeActual;
 
     var addPAddress = document.createElement("p");
     addPAddress.textContent = "Address: " + googlePlaceData.vicinity;
