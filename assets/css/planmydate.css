@@ -11,15 +11,6 @@
   }
 
 
-body {
-    background-image: url("../images/editBackground.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: fit-content;
-
-}
-
 header {
    background-color: rgb(233,116,81);
     display: flex;
