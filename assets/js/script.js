@@ -78,7 +78,7 @@ function renderLoadingScreen() {
   addLoadImg.src = "https://pngimg.com/uploads/smiley/smiley_PNG36233.png";
   addLoadImg.setAttribute("id", "loadImg");
   divForCenteringLoadImg.appendChild(addLoadImg).style.maxWidth = "150px";
-  var timeLeft = 250;
+  var timeLeft = 150;
   loadImg = document.querySelector("#loadImg");
   startTimer(timeLeft);
 }
