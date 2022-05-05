@@ -97,3 +97,9 @@ hr {
 #map {
     display: none;
 }
+
+footer {
+    background-color: rgb(247,231,206);
+    padding: 80px;
+    margin-top: 150px;
+}
