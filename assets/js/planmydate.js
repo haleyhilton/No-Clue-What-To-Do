@@ -2,6 +2,10 @@ var foodOptions = document.querySelector("#food-options");
 var entertainmentOptions = document.querySelector("#entertainment-options");
 var attractionoptions = document.querySelector("#attraction-options");
 var resultsContainer = document.querySelector(".results-container");
+var updateBtn = document.querySelector("#updateBtn");
+var cityInput = document.querySelector("#city");
+var stateInput = document.querySelector("#state");
+var dateTypeInput = document.querySelector(".dropdown-options");
 
 //Show data from other page
 console.log(JSON.parse(localStorage.getItem("dataFromForm")));
@@ -78,6 +82,15 @@ function performNearbySearch(typeOfPlace, searchRadius) {
   service.nearbySearch(request, function(results, status) {
       if (!(status === google.maps.places.PlacesServiceStatus.OK)) {
           totalOps--;
+          if (currentOps == totalOps) {
+            if (currentOps > 1) {
+                console.log("makes it here");
+                showResults(totalOpsArray, "attractions");
+            }
+            if (currentOps == 1) {
+                showResults(totalOpsArray, typeOfPlace);
+            }
+        }
       }
       if (status === google.maps.places.PlacesServiceStatus.OK) {
           console.log(results);
@@ -347,3 +360,47 @@ function checkAndConvertStateFormat(statey) {
     //return the abbreviated state
     return stateAbrs[whichState];
 }
+
+updateBtn.addEventListener("click", function() {
+    //Show data from other page
+    console.log(JSON.parse(localStorage.getItem("dataFromForm")));
+    dataFromForm = JSON.parse(localStorage.getItem("dataFromForm"));
+    dateDate = dataFromForm[0];
+    place = cityInput.value + " " + stateInput.value;
+    placeCity = cityInput.value;
+    placeState = stateInput.value;
+    what = dateTypeInput.value;
+
+    //decide what api to call and what to pass into it
+    nearbyPlaces = [];
+    totalOps = 1;
+    currentOps = 0;
+    totalOpsArray = [];
+    if (what == "Attractions") {
+        foodOptions.setAttribute("style", "display: none");
+        entertainmentOptions.setAttribute("style", "display: none");
+        attractionoptions.setAttribute("style", "display: block");
+        totalOps = 7;
+        getNearbyPlaces(place, "amusement_park", 10000);
+        getNearbyPlaces(place, "aquarium", 10000);
+        getNearbyPlaces(place, "art_gallery", 10000);
+        getNearbyPlaces(place, "bowling_alley", 10000);
+        getNearbyPlaces(place, "museum", 10000);
+        getNearbyPlaces(place, "park", 10000);
+        getNearbyPlaces(place, "zoo", 10000);
+    }
+    if (what == "Entertainment") {
+        foodOptions.setAttribute("style", "display: none");
+        attractionoptions.setAttribute("style", "display: none");
+        entertainmentOptions.setAttribute("style", "display: block");
+        placeState = checkAndConvertStateFormat(placeState);
+        getNearbyEntertainment(placeCity, placeState, dateDate);
+    }
+    if (what == "Food") {
+        console.log("gets here");
+        entertainmentOptions.setAttribute("style", "display: none");
+        attractionoptions.setAttribute("style", "display: none");
+        foodOptions.setAttribute("style", "display: block");
+        getNearbyPlaces(place, "restaurant", 10000);
+    }
+})
