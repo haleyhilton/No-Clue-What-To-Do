@@ -203,8 +203,8 @@ font-size: large;
 .carousel__indicator {
   border: 0;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   background: #443939;
   margin: 0 12px;
   cursor: pointer;
