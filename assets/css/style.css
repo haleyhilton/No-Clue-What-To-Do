@@ -45,14 +45,11 @@
 
 
 .header-title{
-    display: flex;
-    justify-content: right;
-    padding: 4% 2% 7%;
+    padding: 4% 2% 5px;
     font-weight: 500;
-    flex-direction: column;
-    flex-wrap: wrap;
     background-color: var(--sienna);
     color: var(--champagne);
+    position: relative;
 }
 
 .head-font{
@@ -101,7 +98,7 @@ font-size: large;
   background-color: var(--champagne);
 }
 
-button{
+.main-buttons{
     display: flex;
     justify-content: center;
     margin: 10px;
@@ -111,7 +108,7 @@ button{
     font-size: small;
 }
 
-button:hover{
+.main-buttons:hover{
   background-color: var(--champagne);
   opacity: 80%;
   transition: 0.5s;
@@ -128,29 +125,95 @@ button:hover{
   opacity: 80%;
   color: var(--sienna);
 }
-/*
-.gallery {
-  background: #EEE;
+
+.carousel {
+  position: relative;
+  height: 600px;
+  width: 95%;
+  margin: 0 auto; /*puts it in the middle*/
+
 }
 
-.gallery-cell {
+.carousel__image {
   width: 100%;
-  height: 200px;
-  margin-right: 10px;
-  background: #8C8;
-  counter-increment: gallery-cell;
+  object-fit: cover;
+  position: absolute;
+  
 }
 
-/* cell number
-.gallery-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
-}*/
+.carousel__track-container {
+  height: 100%;
+  padding: 5px 0px;
+  position: relative;
+  overflow: hidden;
+}
 
-/*font-family: 'DM Sans', sans-serif;
-font-family: 'Lora', serif;
-font-family: 'Roboto', sans-serif;*/
+.carousel__track {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  height: 100%;
+  transition: transform 250ms ease-in;
+}
+
+.carousel__slide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.carousel__btn--left {
+  left: 0px;
+  z-index: 3;  
+}
+
+.carousel__btn--right {
+  right: -0px;
+}
+
+.left-button {
+  transform: rotate(180deg);
+  
+}
+
+
+.carousel__btn img {
+  width: 30px;
+  z-index: 3;
+
+}
+
+.carousel__nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.carousel__indicator {
+  border: 0;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: #443939;
+  margin: 0 12px;
+  cursor: pointer;
+}
+
+.carousel__indicator.current-slide {
+  background: rgba(0,0,0,.95)
+}
+
+.is-hidden {
+  display: none;
+}

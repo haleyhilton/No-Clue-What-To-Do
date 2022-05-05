@@ -30,7 +30,35 @@
     <p style="display: flex;justify-content: right;">Help us help you! Fill out the form below</p>
   </div>
 
-  <div id="header"></div>
+  <div id="header">
+  <div class="carousel">
+    <button class="carousel__btn carousel__btn--left is-hidden left-button">
+      <img src="./assets/images/rArrow.png" alt=""> <!--left-->    
+    </button>  
+    <div class="carousel__track-container">
+      <ul class="carousel__track">
+        <li class="carousel__slide current-slide">
+          <img class="carousel__image" src="./assets/images/3.png" alt="">
+        </li>
+        <li class="carousel__slide">
+          <img class="carousel__image" src="./assets/images/2.png" alt="">
+        </li>
+        <li class="carousel__slide">
+          <img class="carousel__image" src="./assets/images/4.png" alt="">
+        </li>
+      </ul>
+    </div>
+    <button class="carousel__btn carousel__btn--right">
+      <img src="./assets/images/rArrow.png" alt=""> <!--right-->    
+    </button>  
+
+    <div class="carousel__nav">
+      <button class="carousel__indicator current-slide"></button>
+      <button class="carousel__indicator"></button>
+      <button class="carousel__indicator"></button>
+    </div>
+</div>
+</div>
   
 
   <div id='rotate'> Start Planning</div>
@@ -65,8 +93,8 @@
           </select>
         </div>
 
-        <button id="loadPageTwoNormalBtn">Show Me<br>Ideas</button>
-        <button id="loadPageTwoSurpriseButton">Surprise<br>Me</button>
+        <button class="main-buttons" id="loadPageTwoNormalBtn">Show Me<br>Ideas</button>
+        <button class="main-buttons" id="loadPageTwoSurpriseButton">Surprise<br>Me</button>
 
       </form>
 </div>
@@ -75,6 +103,7 @@
     </div>
 
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/carousel.js"></script>
 </body>
 
 </html>
