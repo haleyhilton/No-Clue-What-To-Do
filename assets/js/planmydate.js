@@ -73,7 +73,6 @@ function performNearbySearch(typeOfPlace, searchRadius) {
 
   service.nearbySearch(request, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-          console.log(results);
           showResults(results, typeOfPlace);
       }
   });
@@ -89,7 +88,6 @@ function getNearbyEntertainment(sgCity, sgState, sgDate) {
     sgCity = sgCity.replace(" ", "-");
     sgState = sgState.replace(" ", "-");
     sgDatePlusOne = moment(sgDate, "YYYY-MM-DD").add(1, 'd').format("YYYY-MM-DD");
-    console.log(sgCity + " " + sgState + " " + sgDate + " " + sgDatePlusOne);
     requestUrl = "https://api.seatgeek.com/2/events?venue.state=" + sgState + "&venue.city=" + sgCity + "&datetime_local.gte=" + sgDate + "&datetime_local.lt=" + sgDatePlusOne + "&per_page=100&sort=datetime_local.asc&client_id=MjY4MjAxMDZ8MTY1MTYwMjA4Mi44Nzc5MjQ3";
     fetch(requestUrl)
       .then(function (response) {
@@ -106,25 +104,30 @@ function getNearbyEntertainment(sgCity, sgState, sgDate) {
 function showResults(rslts, ptype) {
     if (ptype == "amusement_park" || ptype == "aquarium" || ptype == "art_gallery" || ptype == "bowling_alley" || ptype == "museum" || ptype == "park" || ptype == "zoo") {
         var cardsContainer = document.querySelector("#attractionsCardsContainer");
-        console.log(cardsContainer);
         for (i = 0; i < rslts.length; i++) {
             if (rslts[i].business_status == "OPERATIONAL") {
-                createAttractionCard(rslts[i], cardsContainer, ptype);
+                console.log(rslts[i]);
+                if (rslts[i].photos) {
+                    createAttractionCard(rslts[i], cardsContainer, ptype);
+                }
             }
         }
     }
     if (ptype == "entertainment") {
         var cardsContainer = document.querySelector("#entertainmentCardsContainer");
+        console.log(rslts);
         for (i = 0; i < rslts.length; i++) {
             createEntertainmentCard(rslts[i], cardsContainer);
         }
     }
     if (ptype == "restaurant") {
         var cardsContainer = document.querySelector("#foodCardsContainer");
-        console.log(cardsContainer);
         for (i = 0; i < rslts.length; i++) {
             if (rslts[i].business_status == "OPERATIONAL") {
-                createFoodCard(rslts[i], cardsContainer);
+                console.log(rslts[i]);
+                if (rslts[i].photos) {
+                    createFoodCard(rslts[i], cardsContainer);
+                }
             }
         }
     }
@@ -136,16 +139,19 @@ function createFoodCard(googlePlaceData, cardsContainer) {
     addFoodCard.setAttribute("class", "customCard");
     var addColOne = document.createElement("div");
     var addColTwo = document.createElement("div");
+    addColTwo.style.padding = "10px";
     //create img
     if (googlePlaceData.photos) {
         var addImg = document.createElement("img");
         addImg.src = googlePlaceData.photos[0].getUrl();
         addImg.style.maxWidth = "250px";
         addImg.style.maxHeight = "250px";
+        addImg.style.padding = "10px";
     }
     //create ps
     var addName = document.createElement("h4");
     addName.textContent = googlePlaceData.name;
+    addName.style.padding = "10px";
 
     var addPRating = document.createElement("p");
     addPRating.textContent = "Rating: " + googlePlaceData.rating + "/5";
@@ -226,10 +232,14 @@ function createEntertainmentCard(seatGeekData, cardsContainer) {
     addName.textContent = seatGeekData.title;
 
     var addEventType = document.createElement("p");
-    addEventType.textContent = seatGeekData.type.replace("_", " ");
+    et = seatGeekData.type.replace(/_/g, " ");
+    et = (et.charAt(0).toUpperCase() + et.slice(1));
+    addEventType.textContent = et;
 
     var addEventTime = document.createElement("p");
-    addEventTime.textContent = "Starts at: " + seatGeekData.datetime_local.slice(11);
+    timeMilitary = seatGeekData.datetime_local.slice(11);
+    timeFormatted = moment(timeMilitary, "HH:mm:ss").format("h:mma");
+    addEventTime.textContent = "Starts at: " + timeFormatted;
 
     var addVenue = document.createElement("p");
     addVenue.textContent = "Venue: " + seatGeekData.venue.name;
@@ -253,12 +263,13 @@ function createEntertainmentCard(seatGeekData, cardsContainer) {
 }
 
 function checkAndConvertStateFormat(statey) {
+    statey = statey.toLowerCase();
     spelledRight = false;
     whichState = 0;
     //states full name array
-    stateFulls = [];
+    stateFulls = ["alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "district of columbia", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "north dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming"];
     //states abr. array
-    stateAbrs = [];
+    stateAbrs = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
     //check to see if conversion is necessary
     for (st = 0; st < stateAbrs.length; st++) {
         if (statey == stateAbrs[st]) {
@@ -272,6 +283,6 @@ function checkAndConvertStateFormat(statey) {
             whichState = st;
         }
     }
-    //
+    //return the abbreviated state
     return stateAbrs[whichState];
 }
