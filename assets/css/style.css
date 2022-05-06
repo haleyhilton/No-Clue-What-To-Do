@@ -241,6 +241,18 @@ font-size: large;
 
   }
 }
+
+@media screen and (max-width: 428px) {
+  #rotate {
+    writing-mode: horizontal-tb;
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+  .information-container {
+     margin: 50px;
+     padding: 25px;
+  }
+}
 @media screen and (max-width: 320px) {
   #header {
     display: none;
