@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="ResetStyleSheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./assets/css/planmydate.css">
+    <title>Great Date: For the adventurous and indecisive</title>
+    <link rel="icon" href="./assets/images/1.png">
+</head>
+<body>
+  <div>
+    <header>
+        <h1>GREAT DATE</h1>
+        <form>
+            <label for="city">City:</label>
+            <input type="search" id="city">
+            <label for="state">State:</label>
+            <input type="search" id="state">
+            <label for="dropdown-options"></label>
+            <select class="dropdown-options">
+                <option>Attractions</option>
+                <option>Entertainment</option>
+                <option>Food</option>
+            </select>
+            <button type="button" id="updateBtn">Update</button>
+        </form>
+    </header>
+        <div class="results-container">
+            <div class="outingTypeContainer" id="food-options">
+                <h3>Food Options:</h3>
+                <div id="foodCardsContainer" class="cardsContainer"></div>
+            </div>
+            <div class="outingTypeContainer" id="entertainment-options">
+                <h3>Entertainment Options:</h3>
+                <div id="entertainmentCardsContainer" class="cardsContainer"></div>
+            </div>
+            <div class="outingTypeContainer" id="attraction-options">
+                <h3>Attraction Options:</h3>
+                <div id="attractionsCardsContainer" class="cardsContainer"></div>
+            </div>
+        </div>
+        <footer>
+            
+        </footer>
+
+    <!-- Leave this div, it's disabled and is necessary for google maps api to function -->
+    <div id="map"></div>
+    <!--Google Maps Api-->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJYaSoyJpEW8-eq6dfHoB7Dvv8dKm84-U&libraries=places&v=weekly"
+        defer
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="./assets/js/planmydate.js"></script>
+ </div>
+</body>
+</html>

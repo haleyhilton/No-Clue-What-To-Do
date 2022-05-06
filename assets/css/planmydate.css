@@ -1,0 +1,111 @@
+/* Fonts being imported to use on style sheet */
+
+
+/* Parisienne */
+
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+/* Diplomata SC */
+
+@import url('https://fonts.googleapis.com/css2?family=Diplomata+SC&display=swap');
+@font-face {
+    font-family: 'Moveri-Bold';
+    src: url('../fonts/Moveri-Bold.ttf');
+}
+
+header {
+    background-color: rgb(233, 116, 81);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 0 45px;
+}
+
+h1 {
+    color: rgb(247, 231, 206);
+    font-family: 'Moveri-Bold', sans-serif;
+    font-weight: bold;
+    font-size: 80PX;
+}
+
+button {
+    border-radius: 50%;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    font-family: 'Diplomata SC', cursive;
+    color: #e97451;
+}
+
+
+/* couldn't see text due to background image */
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+select {
+    width: 160px;
+    height: 25px;
+}
+
+
+/* styling to separate header from search content */
+
+hr {
+    border: 10px solid #e97451;
+    border-radius: 5px;
+}
+
+
+/* to display options in the center for user to read and select through */
+
+.results-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f7e7ce;
+    border: 0.2rem solid #fff;
+    border-radius: 25px;
+    margin: 8% 20% 15%;
+    padding: 25px;
+    box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #e97451, 0 0 0.8rem #fe1313, 0 0 2.8rem #fe1313, inset 0 0 1.3rem #e97451;
+}
+
+.outingTypeContainer {
+    font-size: 30px;
+}
+
+.customCard {
+    border-style: solid;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    padding: 6px;
+}
+
+.customCardWithoutFlex {
+    border-style: solid;
+    flex-wrap: wrap;
+    font-size: 20px;
+    padding: 10px;
+}
+
+
+/* turn off google maps required div */
+
+#map {
+    display: none;
+}
+
+footer {
+    background-color: rgb(247, 231, 206);
+    padding: 80px;
+    margin-top: 150px;
+}
