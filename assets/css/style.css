@@ -205,15 +205,66 @@ font-size: large;
   border-radius: 50%;
   width: 15px;
   height: 15px;
-  background: #443939;
+  background: rgb(233,116,81);
   margin: 0 12px;
   cursor: pointer;
 }
 
 .carousel__indicator.current-slide {
-  background: rgba(0,0,0,.95)
+  background: white;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #e97451, 0 0 0.8rem #fe1313, 0 0 2.8rem #fe1313, inset 0 0 1.3rem #e97451;
 }
 
 .is-hidden {
   display: none;
 }
+
+
+
+/* Media Queries for screen responsiveness */
+@media screen and (max-width: 1200px) {
+  .carousel__image {
+      height: 1500px;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  #rotate {
+    writing-mode: horizontal-tb;
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+  .information-container {
+    margin: 50px;
+    padding: 112px
+
+  }
+}
+
+@media screen and (max-width: 428px) {
+  #rotate {
+    writing-mode: horizontal-tb;
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+  .information-container {
+     margin: 50px;
+     padding: 25px;
+  }
+}
+@media screen and (max-width: 320px) {
+  #header {
+    display: none;
+  }
+  #rotate {
+    writing-mode: horizontal-tb;
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+  .information-container {
+     margin: 50px;
+     padding: 25px;
+  }
+}
+
