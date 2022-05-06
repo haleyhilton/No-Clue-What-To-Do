@@ -172,6 +172,7 @@ function showResults(rslts, ptype) {
     console.log(rslts);
     if (ptype == "attractions") {
         var cardsContainer = document.querySelector("#attractionsCardsContainer");
+        cardsContainer.innerHTML = "";
         for (i = 0; i < rslts.length; i++) {
             if (rslts[i].business_status == "OPERATIONAL") {
                 console.log(rslts[i]);
@@ -184,12 +185,14 @@ function showResults(rslts, ptype) {
     if (ptype == "entertainment") {
         var cardsContainer = document.querySelector("#entertainmentCardsContainer");
         console.log(rslts);
+        cardsContainer.innerHTML = "";
         for (i = 0; i < rslts.length; i++) {
             createEntertainmentCard(rslts[i], cardsContainer);
         }
     }
     if (ptype == "restaurant") {
         var cardsContainer = document.querySelector("#foodCardsContainer");
+        cardsContainer.innerHTML = "";
         for (i = 0; i < rslts.length; i++) {
             if (rslts[i].business_status == "OPERATIONAL") {
                 console.log(rslts[i]);
@@ -246,6 +249,19 @@ function createFoodCard(googlePlaceData, cardsContainer) {
     cardsContainer.appendChild(addFoodCard);
     cardsContainer.appendChild(addBr);
 }
+function capitalizeFirstLetter (name) {
+    var words = name.split(" ");
+    var wordArray = []
+    for (var word of words) {
+        var first = word.substring(0,1).toUpperCase()
+        var rest = word.substring(1)
+        var newWord = first + rest
+        wordArray.push(newWord)
+    }
+    var finalWord = wordArray.join(" ")
+    console.log(finalWord)
+    return (finalWord)
+}
 
 function createAttractionCard(googlePlaceData, cardsContainer) {
     //create holder div
@@ -262,7 +278,8 @@ function createAttractionCard(googlePlaceData, cardsContainer) {
     }
     //create ps
     var addName = document.createElement("h4");
-    addName.textContent = googlePlaceData.name;
+    addName.textContent = googlePlaceData.name
+    //addName.textContent = capitalizeFirstLetter (googlePlaceData.name)
 
     var addPRating = document.createElement("p");
     addPRating.textContent = "Rating: " + googlePlaceData.rating + "/5";
@@ -275,7 +292,7 @@ function createAttractionCard(googlePlaceData, cardsContainer) {
         }
     }
     ptypeActual = ptypeActual.replace("_", " ");
-    addPType.textContent = ptypeActual;
+    addPType.textContent = capitalizeFirstLetter(ptypeActual);
 
     var addPAddress = document.createElement("p");
     addPAddress.textContent = "Address: " + googlePlaceData.vicinity;
