@@ -86,6 +86,10 @@ dotsNav.addEventListener('click', e => {
     hideShowArrows(slides, prevButton, nextButton, targetIndex)
 })
 
+var img = document.createElement("img");
+img.src ="https://i.postimg.cc/4xTBXRdP/te.png";
+var src = document.getElementById("first");
+src.appendChild(img);
 
 
 

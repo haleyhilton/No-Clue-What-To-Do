@@ -45,7 +45,7 @@
 
 
 .header-title{
-    padding: 4% 2% 5px;
+    padding: 2% 2% 5px;
     font-weight: 500;
     background-color: var(--sienna);
     color: var(--champagne);
@@ -143,7 +143,6 @@ font-size: large;
 
 .carousel__track-container {
   height: 100%;
-  padding: 5px 0px;
   position: relative;
   overflow: hidden;
 }
@@ -222,12 +221,7 @@ font-size: large;
 
 
 /* Media Queries for screen responsiveness */
-@media screen and (max-width: 1200px) {
-  .carousel__image {
-      height: 1500px;
-  }
 
-}
 
 @media screen and (max-width: 768px) {
   #rotate {
